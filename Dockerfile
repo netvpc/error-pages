@@ -25,11 +25,7 @@ FROM develop AS compile
 ARG APP_VERSION="undefined@docker"
 
 # 클론 및 브랜치 체크아웃
-RUN git clone --recurse-submodules -j8 https://github.com/NavyStack/error-pages.git /src \
-    && cd /src \
-    && git fetch origin \
-    && git branch -r \
-    && git checkout -b korean-translation origin/korean-translation
+RUN git clone --recurse-submodules -j8 https://github.com/tarampampam/error-pages /src
 
 RUN set -x \
     && go generate ./... \
